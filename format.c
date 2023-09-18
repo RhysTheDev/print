@@ -14,6 +14,7 @@ int _process_format_char(char format_char, va_list args)
 			return (_putchar(va_arg(args, int)));
 		case 's':
 			return (_printstring(va_arg(args, char*)));
+		case 'd':
 		case 'i':
 			return (putint(va_arg(args, int)));
 		case '%':
