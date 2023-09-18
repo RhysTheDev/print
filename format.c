@@ -1,51 +1,53 @@
 #include "main.h"
 /**
- * _formatchecker - process each character
- * @format: string to be printed as well as the format specifier
+ * _process_format_char - process each character
+ * @format_char: format specifier
  * @args: variable argument list
  *
  * Return: count of characters
  */
+int _process_format_char(char format_char, va_list args)
+{
+	switch (format_char)
+	{
+		case 'c':
+			return (_putchar(va_arg(args, int)));
+		case 's':
+			return (_printstring(va_arg(args, char*)));
+		case 'i':
+			return (putint(va_arg(args, int)));
+		case '%':
+			return (_putchar(('%')));
+		default:
+			return (0);
+	}
+}
+
+/**
+ * _formatchecker - print format of str
+ * @format: format of string
+ * @args: variable argument list
+ *
+ * Return: count
+ */
 int _formatchecker(const char *format, va_list args)
 {
 	int count = 0;
-	char *str;
 
 	while (*format != '\0')
 	{
 		if (*format == '%')
 		{
 			format++;
-			switch (*format)
-			{
-				case 'c':
-					count += _putchar(va_arg(args, int));
-					break;
-				case 's':
-				{
-					str = va_arg(args, char*);
-					while (*str != '\0')
-					{
-						count += _putchar(*str);
-						str++;
-					}
-				}
-					break;
-				case 'i':
-					count += putint(va_arg(args, int));
-					break;
-				case '%':
-					count += _putchar('%');
-					break;
-				default:
-					count += _putchar('%');
-					count += _putchar(*format);
-					break;
-			}
+			count += _process_format_char(*format, args);
 		}
 		else
+		{
 			count += _putchar(*format);
+		}
 		format++;
 	}
+
 	return (count);
 }
+
