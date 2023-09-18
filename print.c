@@ -18,6 +18,11 @@ int _printf(const char *format, ...)
         if (*format == '%') {
             format++;
             switch (*format) {
+		case 'i': {
+                    int num = va_arg(args, int);;
+                    count += putint(num);
+                    break;
+                }
                 case 'c': {
                     char c = va_arg(args, int);
                     _putchar(c);
