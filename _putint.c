@@ -1,5 +1,5 @@
 #include "main.h"
-/*
+/**
  * putint - prints integer passed
  * @num: number to be printed
  *
