@@ -8,7 +8,6 @@
 int _putchar(char c);
 int _printf(const char *format, ...);
 int putint(int num);
-
-
+int _formatchecker(const char *format, va_list args);
 
 #endif

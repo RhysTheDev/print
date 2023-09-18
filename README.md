@@ -10,3 +10,5 @@ Prints integer passed.
 ## _putchar.c
 Writes the character c to stdout.
 
+## _formatchecker
+Process each character
