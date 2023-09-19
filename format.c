@@ -10,6 +10,14 @@ int _process_format_char(char format_char, va_list args)
 {
 	switch (format_char)
 	{
+		case 'x':
+			return (_put_hex(va_arg(args, int), 0));
+		case 'X':
+			return (_put_hex(va_arg(args, int), 1));
+		case 'o':
+			return (_put_octal(va_arg(args, int)));
+		case 'u':
+			return (_put_unsigned_int(va_arg(args, int)));
 		case 'c':
 			return (_putchar(va_arg(args, int)));
 		case 's':
