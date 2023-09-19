@@ -5,7 +5,7 @@
  *
  * Return: number of digits in the number
  */
-int putint(int num)
+int putint(long num)
 {
 	int div = 1;
 	int count = 0;
@@ -16,6 +16,7 @@ int putint(int num)
 		count++;
 		num = -num;
 	}
+
 	while (num / div > 9)
 		div *= 10;
 	while (div > 0)
