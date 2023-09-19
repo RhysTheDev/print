@@ -16,7 +16,7 @@ int _printstring(char *str);
 int _put_unsigned_int(unsigned int num);
 int _put_octal(unsigned int num);
 int _put_hex(unsigned int num, int uppercase);
-
+int _print_unique_chars(char *str);
 
 
 
