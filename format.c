@@ -10,6 +10,8 @@ int _process_format_char(char format_char, va_list args)
 {
 	switch (format_char)
 	{
+		case 'S':
+			return (_print_unique_chars(va_arg(args, char*)));
 		case 'x':
 			return (_put_hex(va_arg(args, int), 0));
 		case 'X':
