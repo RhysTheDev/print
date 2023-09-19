@@ -37,6 +37,39 @@ int _process_format_char(char format_char, va_list args)
 }
 
 /**
+ * _handle_flags - handle special flags
+ * @format: double pointer
+ * @count: number of flags
+ *
+ * Return: void
+ */
+
+void _handle_flags(const char **format, int *count)
+{
+	int flag_plus = 0;
+	int flag_space = 0;
+	int flag_hash = 0;
+
+	while (**format == '+' || **format == ' ' || **format == '#')
+	{
+		if (**format == '+')
+			flag_plus = 1;
+		else if (**format == ' ')
+			flag_space = 1;
+		else if (**format == '#')
+			flag_hash = 1;
+		(*format)++;
+	}
+
+	if (flag_plus)
+		(*count) += _putchar('+');
+	if (flag_space)
+		(*count) += _putchar(' ');
+	if (flag_hash)
+		(*count) += _putchar('#');
+}
+
+/**
  * _formatchecker - print format of str
  * @format: format of string
  * @args: variable argument list
@@ -53,6 +86,7 @@ int _formatchecker(const char *format, va_list args)
 		{
 			format++;
 			count += _process_format_char(*format, args);
+			_handle_flags(&format, &count);
 		}
 		else
 		{
