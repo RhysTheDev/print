@@ -35,20 +35,19 @@ int _printstring(char *str)
 int _print_unique_chars(char *str)
 {
 	int count = 0;
-	int i = 0;
 
-	while (i != '\0')
+	while (*str)
 	{
-		if (str[i] < 32 || str[i] >= 127)
+		if (*str < 32 || *str >= 127)
 		{
 			count += _putchar('\\');
 			count += _putchar('x');
-			count += _putchar((str[i] >> 4) + '0');
-			count += _putchar((str[i] & 0xF) + '0');
+			count += _putchar((*str >> 4) + '0');
+			count += _putchar((*str & 0xF) + '0');
 		}
 		else
-			count += _putchar(str[i]);
-		i++;
+			count += _putchar(*str);
+		str++;
 	}
 	return (count);
 }
