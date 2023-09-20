@@ -20,7 +20,7 @@ int _print_unique_chars(char *str);
 int _print_address(void *ptr);
 void _print_address_recursive(unsigned long address);
 void _handle_flags(const char **format, int *count);
-
+int rot13(char *str);
 
 
 #endif

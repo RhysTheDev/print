@@ -10,6 +10,8 @@ int _process_format_char(char format_char, va_list args)
 {
 	switch (format_char)
 	{
+		case 'R':
+			return (rot13(va_arg(args, char*)));
 		case 'p':
 			return (_print_address(va_arg(args, char*)));
 		case 'S':
@@ -56,16 +58,16 @@ void _handle_flags(const char **format, int *count)
 			flag_plus = 1;
 		else if (**format == ' ')
 			flag_space = 1;
-		else if (**format == '#')
+		if (**format == '#')
 			flag_hash = 1;
 		(*format)++;
 	}
 
-	if (flag_plus)
+	if (flag_plus & !flag_space)
 		(*count) += _putchar('+');
-	if (flag_space)
+	else if (flag_space)
 		(*count) += _putchar(' ');
-	if (flag_hash)
+	else if (flag_hash)
 		(*count) += _putchar('#');
 }
 
