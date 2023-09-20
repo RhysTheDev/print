@@ -87,8 +87,8 @@ int _formatchecker(const char *format, va_list args)
 		if (*format == '%')
 		{
 			format++;
-			count += _process_format_char(*format, args);
 			_handle_flags(&format, &count);
+			count += _process_format_char(*format, args);
 		}
 		else
 		{
