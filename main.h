@@ -21,6 +21,6 @@ int _print_address(void *ptr);
 void _print_address_recursive(unsigned long address);
 void _handle_flags(const char **format, int *count);
 int rot13(char *str);
-
+int _putbinary(unsigned int n);
 
 #endif

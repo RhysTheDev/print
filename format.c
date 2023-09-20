@@ -10,6 +10,8 @@ int _process_format_char(char format_char, va_list args)
 {
 	switch (format_char)
 	{
+		case 'b':
+			return (_putbinary(va_arg(args, int)));
 		case 'R':
 			return (rot13(va_arg(args, char*)));
 		case 'p':
